@@ -1,0 +1,44 @@
+﻿
+@model BusinessEntities.Employee
+@{
+    Layout = "~/Views/Shared/Mylayout.cshtml";
+    BusinessEntities.Employee emp = (BusinessEntities.Employee)ViewData["Employee"];
+
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>MyView</title>
+</head>
+<body>
+    Welcome to MVC 5 Step by Step learning
+
+    <div>       
+
+        <b>Employee Details </b><br />
+        Employee Name : @Model.FirstName @Model.LastName  <br />
+        
+        @if (Model.Salary > 1000)
+        { 
+            <span style="background-color:yellow">
+            Employee Salary: @Model.Salary.ToString("C")   
+            </span>
+        }
+        else
+
+        {
+            <span style="background-color:green">
+                Employee Salary: @Model.Salary.ToString("C")
+            </span>
+        }
+        
+
+
+
+
+
+    </div>
+</body>
+</html>

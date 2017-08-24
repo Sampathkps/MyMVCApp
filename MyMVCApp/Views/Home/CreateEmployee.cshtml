@@ -1,0 +1,58 @@
+﻿
+
+@using ViewModel;
+@model CreateEmployeeViewModel
+
+@{
+    Layout = "~/Views/Shared/Mylayout.cshtml";
+    ViewBag.Title = "ViewModel";
+}
+
+
+@section TitleSection
+{
+    Create Employee
+}
+@section ContentBody
+{
+<script src="~/Scripts/Validations.js" type="text/javascript"></script>
+<script>
+    function ResetForm() {
+        document.getElementById('TxtFName').value = "";
+        document.getElementById('TxtLName').value = "";
+        document.getElementById('TxtSalary').value = "";
+    }
+</script>
+
+<div>
+    <form action="/Home/SaveEmployee" method="post">
+        <table border="1" style="border:solid" align="center">
+            <tr>
+                <td>First Name:</td>
+                <td><input type="text" id="TxtFName" name="FirstName" value="@Model.FirstName" /></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="color:red">
+                    @Html.ValidationMessage("FirstName")
+                </td>
+            </tr>
+            <tr>
+                <td>Last Name: </td>
+                <td><input type="text" id="TxtLName" name="LastName" value="@Model.LastName" /></td>
+            </tr>
+            <tr>
+                <td>Salary: </td>
+                <td><input type="text" id="TxtSalary" name="Salary" value="@Model.Salary" /></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" name="BtnSubmit" value="Save Employee" onclick="return IsValid();" />
+                    <input type="button" name="BtnReset" value="Reset" onclick="ResetForm();" />
+                    <input type="submit" name="BtnSubmit" value="Cancel" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+}
